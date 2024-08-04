@@ -1,0 +1,31 @@
+﻿@model BankingApp.AuthServer.ViewModels.AdminRegistrationViewModel;
+<h1>Admin Registration</h1>
+
+<form asp-controller="Auth" asp-action="AdminRegistration" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label>Email</label>
+        <input asp-for="Email" autofocus />
+    </div>
+    <div>
+        <label>First Name</label>
+        <input asp-for="FirstName" />
+    </div>
+    <div>
+        <label>Password</label>
+        <input asp-for="Password" />
+    </div>
+    <div>
+        <label>Confirm Password</label>
+        <input asp-for="ConfirmPassword" />
+    </div>
+    <div>
+        <label>User role</label>
+        <input asp-for="Role" />
+    </div>
+    <p>
+    <p>
+        <button type="submit">Registr</button>
+    </p>
+</form>

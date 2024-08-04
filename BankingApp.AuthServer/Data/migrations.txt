@@ -1,0 +1,10 @@
+add-migration Initial -context IdentityServerAppContext -outputdir Data/ApplicationDb
+Update-Database -Context IdentityServerAppContext
+
+add-migration PersistedGrantDbMigration -context PersistedGrantDbContext -outputdir Data/PersistedGrantDb
+Update-Database -Context PersistedGrantDbContext
+
+add-migration ConfigurationDbMigration -context ConfigurationDbContext -outputdir Data/ConfigurationDb
+Update-Database -Context ConfigurationDbContext
+
+drop-database -context IdentityServerAppContext
