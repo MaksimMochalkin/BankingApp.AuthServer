@@ -68,7 +68,7 @@
             //        context.ApiResources.Add(resource.ToEntity());
             //    }
             //    context.SaveChanges();
-            }
+            //}
         }
     }
 }
