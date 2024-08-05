@@ -3,17 +3,10 @@ using BankingApp.AuthServer.Data;
 using BankingApp.AuthServer.Services;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using RestaurantBooking.AuthServer.Data;
 using System.Reflection;
-using System.Security.Claims;
-using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,15 +17,7 @@ builder.Services.AddDbContext<IdentityServerAppContext>(config =>
         //config.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
         config.UseInMemoryDatabase("MEMORY");
     })
-    .AddIdentity<IdentityUser, IdentityRole>(config =>
-    {
-        config.Password.RequireDigit = false;
-        config.Password.RequireLowercase = false;
-        config.Password.RequireUppercase = false;
-        config.Password.RequireNonAlphanumeric = false;
-        config.Password.RequiredLength = 6;
-    })
-    //.AddIdentity<IdentityUser, IdentityRole>()
+    .AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<IdentityServerAppContext>();
 
 builder.Services.AddCors(options =>

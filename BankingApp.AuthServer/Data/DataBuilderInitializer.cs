@@ -28,9 +28,6 @@
                 var role = roleManager.FindByNameAsync("Administrator").GetAwaiter().GetResult();
                 var claim = roleManager.GetClaimsAsync(role).GetAwaiter().GetResult().FirstOrDefault();
                 userManager.AddClaimAsync(user, claim).GetAwaiter().GetResult();
-
-                //userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, "Administrator")).GetAwaiter().GetResult();
-
             }
 
             //serviceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
@@ -71,7 +68,7 @@
             //        context.ApiResources.Add(resource.ToEntity());
             //    }
             //    context.SaveChanges();
-            //}
+            }
         }
     }
 }
